@@ -17,7 +17,7 @@ public class StudentHomeworkJdbc {
             e.printStackTrace();
         }
         String addSql = "insert into school.s_student_homework (student_id, homework_id, homework_title, homework_content, create_time, update_time) values (?,?,?,?,?,?)";
-        try (Connection connection = DriverManager.getConnection(URL)) {
+        try (Connection connection = DriverManager.getConnection(URL,"root", "123456")) {
             try (PreparedStatement statement = connection.prepareStatement(addSql)) {
                 statement.setLong(1, studentHomework.getStudentId());
                 statement.setLong(2, studentHomework.getHomeworkId());
@@ -40,7 +40,7 @@ public class StudentHomeworkJdbc {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        try (Connection connection = DriverManager.getConnection(URL)) {
+        try (Connection connection = DriverManager.getConnection(URL,"root", "123456")) {
             try (Statement statement = connection.createStatement();) {
                 try (ResultSet resultSet = statement.executeQuery(sql)) {
                     while (resultSet.next()) {

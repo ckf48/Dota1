@@ -14,7 +14,7 @@ import java.util.List;
 @WebServlet("/selectHomework")
 public class SelectHomeworkServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Homework> list = HomeworkJdbc.selectAllHomework();
         req.setAttribute("list",list);
         req.getRequestDispatcher("student.jsp").forward(req,resp);

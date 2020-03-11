@@ -14,11 +14,13 @@ import java.sql.Timestamp;
 @WebServlet("/addStudentHomework")
 public class AddStudentHomeworkServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         StudentHomework studentHomework = new StudentHomework();
-        studentHomework.setId(Long.getLong(req.getParameter("id")));
-        studentHomework.setStudentId(Long.getLong(req.getParameter("student_id")));
-        studentHomework.setHomeworkId(Long.getLong(req.getParameter("homework_id")));
+        //studentHomework.setId(Long.getLong(req.getParameter("id")));
+        Long studentId  = Long.valueOf(req.getParameter("student_id"));
+        Long homeworkId = Long.valueOf(req.getParameter("homework_id"));
+        studentHomework.setStudentId(studentId);
+        studentHomework.setHomeworkId(homeworkId);
         studentHomework.setHomeworkTitle(req.getParameter("homework_title"));
         studentHomework.setHomeworkContent(req.getParameter("homework_content"));
         studentHomework.setCreateTime(Timestamp.valueOf(req.getParameter("create_time")));
@@ -26,6 +28,6 @@ public class AddStudentHomeworkServlet extends HttpServlet {
 
         StudentHomeworkJdbc.addStudentHomework(studentHomework);
 
-        resp.sendRedirect("list");
+        resp.sendRedirect("selectHomework");
     }
 }

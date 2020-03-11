@@ -17,7 +17,7 @@ public class HomeworkJdbc {
             e.printStackTrace();
         }
         String addSql = "insert into school.s_homework (title, content, create_time, update_time) values (?,?,?,?)";
-        try(Connection connection = DriverManager.getConnection(URL)) {
+        try(Connection connection = DriverManager.getConnection(URL,"root", "123456")) {
             try(PreparedStatement statement = connection.prepareStatement(addSql)) {
                 statement.setString(1,homework.getTitle());
                 statement.setString(2,homework.getContent());
@@ -39,7 +39,7 @@ public class HomeworkJdbc {
         }
         List<Homework> list = new ArrayList<>();
         String selectSql = "select * from school.s_homework";
-        try(Connection connection = DriverManager.getConnection(URL)) {
+        try(Connection connection = DriverManager.getConnection(URL,"root", "123456")) {
             try(Statement statement = connection.createStatement()){
                 try (ResultSet resultSet = statement.executeQuery(selectSql)){
                     while (resultSet.next()){
@@ -49,6 +49,7 @@ public class HomeworkJdbc {
                         homework.setContent(resultSet.getString("content"));
                         homework.setCreateTime(resultSet.getTimestamp("create_time"));
                         homework.setUpdateTime(resultSet.getTimestamp("update_time"));
+                        list.add(homework);
                     }
                 }
             }
