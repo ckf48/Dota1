@@ -2,7 +2,7 @@ package model;
 
 import lombok.Data;
 
-import java.sql.Date;
+
 import java.sql.Timestamp;
 
 @Data

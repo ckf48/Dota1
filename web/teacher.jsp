@@ -58,16 +58,16 @@
 <div align="center">
     <form action="${pageContext.request.contextPath}/addHomework" method="get">
         <label>
-            <input type="text" name="title">
+           作业题目： <input type="text" name="title">
         </label><br/>
         <label>
-            <input type="text" name="content">
+           内容： <input type="text" name="content">
         </label><br/>
         <label>
-            <input type="text" name="create_time">
+           发布时间： <input type="text" name="create_time">
         </label><br/>
         <label>
-            <input type="text" name="update_time">
+           更新时间： <input type="text" name="update_time">
         </label><br/>
         <input type="submit" value="发布">
     </form>
