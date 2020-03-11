@@ -4,7 +4,7 @@ public class JDBCTest {
     public static void main(String[] args) {
         String url = "jdbc:mysql://127.0.0.1:3306/ckf48?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT";
         String driverName = "com.mysql.cj.jdbc.Driver";
-        String sql = "select * from school.s_student";
+        String sql = "select * from school.s_student_homework";
         try {
             Class.forName(driverName);
             Connection connection = DriverManager.getConnection(url, "root", "123456");

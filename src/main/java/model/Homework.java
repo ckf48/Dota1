@@ -3,6 +3,7 @@ package model;
 import lombok.Data;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 @Data
 public class Homework {
@@ -12,7 +13,7 @@ public class Homework {
 
     private String content;
 
-    private Date createTime;
+    private Timestamp createTime;
 
-    private Date updateTime;
+    private Timestamp updateTime;
 }

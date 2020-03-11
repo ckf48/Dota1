@@ -7,7 +7,7 @@ CREATE TABLE `school`.`s_homework` (
   `title` VARCHAR(20) NULL,
   `content` TEXT NULL,
   `create_time` TIMESTAMP NOT NULL,
-  `update_time` VARCHAR(45) NULL,
+  `update_time` TIMESTAMP NOT NULL,
   PRIMARY KEY (`id`));
 
 
