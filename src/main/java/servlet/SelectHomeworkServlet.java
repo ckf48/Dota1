@@ -1,17 +1,20 @@
 package servlet;
 
+import jdbc.HomeworkJdbc;
+import model.Homework;
+
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
-
-@WebServlet("/studentHomework")
-public class StudentHomeworkServlet extends HttpServlet {
+public class SelectHomeworkServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        List<Homework> list = HomeworkJdbc.selectAllHomework();
+        req.setAttribute("list",list);
+        req.getRequestDispatcher("student.jsp").forward(req,resp);
     }
 }
